@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# System
+.DS_Store
+Thumbs.db
